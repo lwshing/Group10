@@ -10,97 +10,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="my.edu.khcy4jwnnottingham.crisisalertwithvisualandlocationsupport.MainAlert"
-    tools:showIn="@layout/activity_main_alert">
+    tools:showIn="@layout/activity_main_alert"
+    android:textAlignment="center">
 
-    <ImageButton
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_marginTop="154dp"
+        android:text="Welcome"
+        android:id="@+id/textView"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:layout_marginTop="49dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_below="@+id/imageButton"
-        android:layout_toLeftOf="@+id/imageButton"
-        android:layout_toStartOf="@+id/imageButton"
-        android:layout_marginTop="23dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton" />
-
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_alignParentBottom="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="User name"
+        android:id="@+id/textView2"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="122dp" />
+        android:textSize="20sp"
+        android:textAlignment="center" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="46dp"
-        android:layout_alignBottom="@+id/imageButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Password"
+        android:id="@+id/textView3"
+        android:textSize="20sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText3"
-            android:layout_gravity="left|bottom"
-            android:text="Password" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView3"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_gravity="center_horizontal|bottom" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_gravity="center" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText4"
-            android:layout_gravity="left|center_vertical"
-            android:text="E-mail" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText5"
-            android:layout_gravity="center_horizontal|top"
-            android:text="Login" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
-            android:ems="10"
-            android:id="@+id/editText6"
-            android:layout_gravity="center_horizontal|top" />
-    </FrameLayout>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/textView2"
+        android:inputType="text"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
 </RelativeLayout>
