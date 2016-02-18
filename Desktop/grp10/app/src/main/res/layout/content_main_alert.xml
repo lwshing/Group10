@@ -106,6 +106,7 @@
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:onClick="sign_up" />
 
 </RelativeLayout>
