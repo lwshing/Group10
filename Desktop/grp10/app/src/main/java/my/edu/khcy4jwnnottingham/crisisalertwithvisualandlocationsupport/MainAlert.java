@@ -1,5 +1,6 @@
 package my.edu.khcy4jwnnottingham.crisisalertwithvisualandlocationsupport;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainAlert extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainAlert extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_alert, menu);
+
         return true;
     }
 
@@ -40,5 +43,12 @@ public class MainAlert extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void sign_up(View v){
+        startActivity(new Intent(MainAlert.this, SignUp.class));
+    }
+
+    public void log_in(View v){
+        startActivity(new Intent(MainAlert.this, Camera.class));
     }
 }
