@@ -34,18 +34,19 @@ public class Camera extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-    fab.setOnClickListener(new View.OnClickListener()
-                           {
-                               @Override
-                               public void onClick(View view) {
-                                   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                                           .setAction("Action", null).show();
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+                                   @Override
+                                   public void onClick(View view) {
+                                       Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                                               .setAction("Action", null).show();
+                                   }
                                }
-                           }
-    );
-}
+        );
+    }
+
     public void cam(View v) {
         Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = getFile();
@@ -53,12 +54,10 @@ public class Camera extends AppCompatActivity {
         startActivityForResult(camera_intent, CAM_REQUEST);
     }
 
-    private File getFile()
-    {
+    private File getFile() {
         File folder = new File("sdcard/camera_app");
 
-        if(!folder.exists())
-        {
+        if (!folder.exists()) {
             folder.mkdir();
         }
 
@@ -67,8 +66,18 @@ public class Camera extends AppCompatActivity {
 
     }
 
-    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String path =  "sdcard/camera_app/cam_image.jpg";
-        imageView.setImageDrawable(Drawable.createFromPath(path));
-    }*/
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String path = "sdcard/camera_app/cam_image.jpg";
+
+        if (requestCode == CAM_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                imageView.setImageDrawable(Drawable.createFromPath(path));
+
+                Intent i = new Intent(this, cam2.class);
+                i.putExtra("name", path);
+                startActivity(i);
+
+            }
+        }
+    }
 }
