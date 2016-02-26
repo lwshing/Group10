@@ -49,6 +49,6 @@ public class MainAlert extends AppCompatActivity {
     }
 
     public void log_in(View v){
-        startActivity(new Intent(MainAlert.this, Camera.class));
+        startActivity(new Intent(MainAlert.this, MainPage.class));
     }
 }
