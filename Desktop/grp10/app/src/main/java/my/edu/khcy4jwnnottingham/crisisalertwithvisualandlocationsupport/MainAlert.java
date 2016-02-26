@@ -45,10 +45,12 @@ public class MainAlert extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void sign_up(View v){
+
         startActivity(new Intent(MainAlert.this, SignUp.class));
     }
 
     public void log_in(View v){
+
         startActivity(new Intent(MainAlert.this, MainPage.class));
     }
 }

@@ -5,4 +5,5 @@
     <string name="title_activity_camera">Camera</string>
     <string name="title_activity_cam2">cam2</string>
     <string name="title_activity_main_page">MainPage</string>
+    <string name="title_activity_emergency">Emergency</string>
 </resources>

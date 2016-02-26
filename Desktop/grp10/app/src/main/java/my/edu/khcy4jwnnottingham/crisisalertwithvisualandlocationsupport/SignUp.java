@@ -27,7 +27,7 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-    public void main_page(View v){
+    public void main_page(View v) {
         startActivity(new Intent(SignUp.this, MainAlert.class));
     }
 
