@@ -13,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -34,6 +36,8 @@ public class Camera extends AppCompatActivity {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private Uri fileUri;
     String mCurrentPhotoPath;
+    private static RatingBar rating_b;
+    private static TextView text_v;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class Camera extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                ratingBarListener();
             }
         });
     }
@@ -71,10 +76,20 @@ public class Camera extends AppCompatActivity {
         String path = "sdcard/camera_app/cam_image.jpg";
         imageView.setImageDrawable(Drawable.createFromPath(path));
     }
+    public void ratingBarListener(){
+        rating_b = (RatingBar) findViewById(R.id.ratingBar);
+        text_v = (TextView)findViewById(R.id.textView);
+
+        rating_b.setOnRatingBarChangeListener(
+                new RatingBar.OnRatingBarChangeListener()
+        {
+                    @Override
+                    public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                        text_v.setText(String.valueOf(rating));
+                    }
+        });
+    }
 }
-
-
-
 /*class one {
 
     public void cam(View v) {
@@ -87,8 +102,8 @@ public class Camera extends AppCompatActivity {
     private File getFile() {
         File folder = new File("sdcard/camera_app");
 
-        if (!folder.exists()) {
-            folder.mkdir();
+            if (!folder.exists()) {
+                folder.mkdir();
         }
 
         File image_file = new File(folder, "cam_image.jpg");
