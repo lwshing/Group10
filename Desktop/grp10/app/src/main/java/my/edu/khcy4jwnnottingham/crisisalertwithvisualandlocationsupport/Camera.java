@@ -4,26 +4,19 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class Camera extends AppCompatActivity {
     /**
@@ -38,6 +31,9 @@ public class Camera extends AppCompatActivity {
     String mCurrentPhotoPath;
     private static RatingBar rating_b;
     private static TextView text_v;
+    GPS_tracker gps;
+    Button btn;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,10 +46,42 @@ public class Camera extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                ratingBarListener();
+
+            }
+        });
+        ratingBarListener();
+
+        btn = (Button)findViewById(R.id.button12);
+        btn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v){
+                gps=  new GPS_tracker(Camera.this);
+                if(gps.canGetLocation())
+                {
+                    double latitude = gps.getLatitude();
+                    double longitude = gps.getLongtitude();
+
+                    Toast.makeText(getApplicationContext(), "LAT: "+latitude + " " +"LONG: "+longitude,Toast.LENGTH_LONG).show();
+                }
+                else{
+                    gps.showSettingAlert();
+                }
             }
         });
     }
+//    public void gps(View v){
+//        gps = new GPS_tracker(Camera.this);
+//
+//        if(gps.canGetLocation()){
+//            double latitude = gps.getLatitude();
+//            double longtitude = gps.getLongtitude();
+//
+//            Toast.makeText(getApplicationContext(), "Lat: "+ latitude + "Long" + longtitude, Toast.LENGTH_LONG).show();
+//        }
+//        else{
+//            gps.showSettingAlert();
+//        }
+//    }
     public void cam(View v) {
         Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = getFile();
@@ -89,6 +117,8 @@ public class Camera extends AppCompatActivity {
                     }
         });
     }
+
+
 }
 /*class one {
 
