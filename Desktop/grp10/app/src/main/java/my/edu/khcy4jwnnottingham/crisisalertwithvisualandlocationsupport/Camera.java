@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -33,6 +34,8 @@ public class Camera extends AppCompatActivity {
     private static TextView text_v;
     GPS_tracker gps;
     Button btn;
+    TextView text;
+    TextView text1;
 
 
     @Override
@@ -52,7 +55,22 @@ public class Camera extends AppCompatActivity {
         ratingBarListener();
 
         btn = (Button)findViewById(R.id.button12);
+        text = (TextView)findViewById((R.id.textView20));
+        text1 = (TextView)findViewById(R.id.textView21);
+//        gps = new GPS_tracker((Camera.this));
+//        double latitude = gps.getLatitude();
+//        double longitude = gps.getLongtitude();
+//
+//        if(gps.canGetLocation())
+//        {
+//            text.setText((int) latitude);
+//            text1.setText((int) longitude);
+//        }
+//        else{
+//            gps.showSettingAlert();
+//        }
         btn.setOnClickListener(new View.OnClickListener()
+
         {
             public void onClick(View v){
                 gps=  new GPS_tracker(Camera.this);
@@ -61,7 +79,9 @@ public class Camera extends AppCompatActivity {
                     double latitude = gps.getLatitude();
                     double longitude = gps.getLongtitude();
 
-                    Toast.makeText(getApplicationContext(), "LAT: "+latitude + " " +"LONG: "+longitude,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "LAT: "+latitude + " " +"LONG: "+longitude,Toast.LENGTH_LONG).show();
+                    text.setText("Latitude: " + latitude);
+                    text1.setText("Longitude: " + longitude);
                 }
                 else{
                     gps.showSettingAlert();
@@ -69,6 +89,7 @@ public class Camera extends AppCompatActivity {
             }
         });
     }
+
 //    public void gps(View v){
 //        gps = new GPS_tracker(Camera.this);
 //

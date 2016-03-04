@@ -30,35 +30,19 @@
         android:layout_height="150dp"
         android:id="@+id/imageButton"
         android:src="@mipmap/camera"
-        android:layout_below="@+id/textView13"
         android:onClick="cam"
         android:clickable="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText10"
-        android:layout_below="@+id/imageButton"
+        android:layout_below="@+id/textView13"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:lines="7"
-        android:maxLines="7"
-        android:singleLine="false"
-        android:minLines="1" />
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:layout_toEndOf="@+id/editText10"
-        android:layout_alignTop="@+id/editText10"
-        android:layout_toRightOf="@+id/editText10" />
+        android:layout_below="@+id/imageButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,21 +52,20 @@
         android:textAlignment="center"
         android:textSize="30dp"
         android:id="@+id/textView17"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_alignRight="@+id/textView13"
-        android:layout_alignEnd="@+id/textView13"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton" />
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignEnd="@+id/imageButton" />
 
     <RatingBar
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar"
         style="@style/CustomRating"
+        android:clickable="true"
         android:layout_below="@+id/textView17"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:clickable="true" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -93,29 +76,38 @@
         android:layout_alignRight="@+id/ratingBar"
         android:layout_alignEnd="@+id/ratingBar"
         android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
-        android:layout_above="@+id/editText10" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="GPS"
-        android:id="@+id/textView19"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp" />
+        android:layout_toEndOf="@+id/imageButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Show_location"
         android:id="@+id/button12"
-        android:layout_above="@+id/textView19"
+        android:clickable="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView20"
+        android:textAlignment="center"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:clickable="true"
-        android:onClick="gps" />
+        android:layout_below="@+id/button12"
+        android:layout_alignRight="@+id/textView17"
+        android:layout_alignEnd="@+id/textView17" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView21"
+        android:textAlignment="center"
+        android:layout_below="@+id/textView20"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView20"
+        android:layout_alignEnd="@+id/textView20" />
 
 
 </RelativeLayout>

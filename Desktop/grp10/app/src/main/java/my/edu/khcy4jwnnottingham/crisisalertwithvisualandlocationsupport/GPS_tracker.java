@@ -38,7 +38,6 @@ public class GPS_tracker extends Service implements LocationListener {
 
     Location location;
 
-
     public GPS_tracker(Context context) {
         this.context = context;
         getLocation();
@@ -94,10 +93,7 @@ public class GPS_tracker extends Service implements LocationListener {
 
     public void stopUsingGPS() {
         if (locationManager != null) {
-
                 locationManager.removeUpdates(GPS_tracker.this);
-
-
             }
         }
 
