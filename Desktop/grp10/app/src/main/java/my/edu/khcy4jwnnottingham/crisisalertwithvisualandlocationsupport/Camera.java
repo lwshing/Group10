@@ -1,6 +1,7 @@
 package my.edu.khcy4jwnnottingham.crisisalertwithvisualandlocationsupport;
 
 import android.content.Intent;
+import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -57,7 +58,7 @@ public class Camera extends AppCompatActivity {
         button_gps = (Button)findViewById(R.id.button12);
         text = (TextView)findViewById((R.id.textView20));
         text1 = (TextView)findViewById(R.id.textView21);
-        imageView = (ImageView)findViewById(R.id.imageView2);
+        imageView = (ImageView)findViewById(R.id.imageView);
 
         button_gps.setOnClickListener(new View.OnClickListener()
 
@@ -100,7 +101,9 @@ public class Camera extends AppCompatActivity {
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String path = "sdcard/camera_app/cam_image.jpg";
+        imageView.setRotation(90);
         imageView.setImageDrawable(Drawable.createFromPath(path));
+
     }
 
     public void ratingBarListener(){

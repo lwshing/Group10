@@ -36,12 +36,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:layout_width="10dp"
-        android:layout_height="100dp"
-        android:id="@+id/imageView"
-        android:layout_below="@+id/imageButton" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,8 +47,9 @@
         android:layout_below="@+id/imageButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2" />
+        android:layout_marginTop="101dp"
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignEnd="@+id/textView13" />
 
     <RatingBar
         android:layout_width="200dp"
@@ -65,17 +60,6 @@
         android:clickable="true"
         android:layout_below="@+id/textView17"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="value"
-        android:id="@+id/textView18"
-        android:layout_below="@+id/ratingBar"
-        android:layout_alignRight="@+id/ratingBar"
-        android:layout_alignEnd="@+id/ratingBar"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -114,19 +98,16 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textView19"
         android:layout_toLeftOf="@+id/button12"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_alignParentTop="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView"
         android:layout_below="@+id/textView13"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_alignBottom="@+id/imageButton"
-        android:layout_alignRight="@+id/textView13"
-        android:layout_alignEnd="@+id/textView13" />
+        android:layout_gravity= "center"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"/>
 
 
 </RelativeLayout>
