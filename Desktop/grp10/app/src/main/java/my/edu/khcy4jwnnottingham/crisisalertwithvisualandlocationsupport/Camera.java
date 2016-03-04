@@ -33,7 +33,7 @@ public class Camera extends AppCompatActivity {
     private static RatingBar rating_b;
     private static TextView text_v;
     GPS_tracker gps;
-    Button btn;
+    Button button_gps;
     TextView text;
     TextView text1;
 
@@ -54,22 +54,12 @@ public class Camera extends AppCompatActivity {
         });
         ratingBarListener();
 
-        btn = (Button)findViewById(R.id.button12);
+        button_gps = (Button)findViewById(R.id.button12);
         text = (TextView)findViewById((R.id.textView20));
         text1 = (TextView)findViewById(R.id.textView21);
-//        gps = new GPS_tracker((Camera.this));
-//        double latitude = gps.getLatitude();
-//        double longitude = gps.getLongtitude();
-//
-//        if(gps.canGetLocation())
-//        {
-//            text.setText((int) latitude);
-//            text1.setText((int) longitude);
-//        }
-//        else{
-//            gps.showSettingAlert();
-//        }
-        btn.setOnClickListener(new View.OnClickListener()
+        imageView = (ImageView)findViewById(R.id.imageView2);
+
+        button_gps.setOnClickListener(new View.OnClickListener()
 
         {
             public void onClick(View v){
@@ -90,19 +80,6 @@ public class Camera extends AppCompatActivity {
         });
     }
 
-//    public void gps(View v){
-//        gps = new GPS_tracker(Camera.this);
-//
-//        if(gps.canGetLocation()){
-//            double latitude = gps.getLatitude();
-//            double longtitude = gps.getLongtitude();
-//
-//            Toast.makeText(getApplicationContext(), "Lat: "+ latitude + "Long" + longtitude, Toast.LENGTH_LONG).show();
-//        }
-//        else{
-//            gps.showSettingAlert();
-//        }
-//    }
     public void cam(View v) {
         Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = getFile();
@@ -125,9 +102,10 @@ public class Camera extends AppCompatActivity {
         String path = "sdcard/camera_app/cam_image.jpg";
         imageView.setImageDrawable(Drawable.createFromPath(path));
     }
+
     public void ratingBarListener(){
         rating_b = (RatingBar) findViewById(R.id.ratingBar);
-        text_v = (TextView)findViewById(R.id.textView);
+        text_v = (TextView)findViewById(R.id.textView19);
 
         rating_b.setOnRatingBarChangeListener(
                 new RatingBar.OnRatingBarChangeListener()
