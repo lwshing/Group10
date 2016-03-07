@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ public class Camera extends AppCompatActivity {
     private static TextView text_v;
     GPS_tracker gps;
     Button button_gps;
+    ImageButton button_camera;
     TextView text;
     TextView text1;
 
@@ -55,38 +57,62 @@ public class Camera extends AppCompatActivity {
         });
         ratingBarListener();
 
-        button_gps = (Button)findViewById(R.id.button12);
-        text = (TextView)findViewById((R.id.textView20));
-        text1 = (TextView)findViewById(R.id.textView21);
-        imageView = (ImageView)findViewById(R.id.imageView);
+        //button_gps = (Button)findViewById(R.id.button12);
+        text = (TextView) findViewById((R.id.textView20));
+        text1 = (TextView) findViewById(R.id.textView21);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
-        button_gps.setOnClickListener(new View.OnClickListener()
+        gps = new GPS_tracker(Camera.this);
+        if (gps.canGetLocation()) {
+            double latitude = gps.getLatitude();
+            double longitude = gps.getLongtitude();
 
-        {
-            public void onClick(View v){
-                gps=  new GPS_tracker(Camera.this);
-                if(gps.canGetLocation())
-                {
-                    double latitude = gps.getLatitude();
-                    double longitude = gps.getLongtitude();
+            //Toast.makeText(getApplicationContext(), "LAT: "+latitude + " " +"LONG: "+longitude,Toast.LENGTH_LONG).show();
+            text.setText("Latitude: " + latitude);
+            text1.setText("Longitude: " + longitude);
+        } else {
+            gps.showSettingAlert();
+        }
 
-                    //Toast.makeText(getApplicationContext(), "LAT: "+latitude + " " +"LONG: "+longitude,Toast.LENGTH_LONG).show();
-                    text.setText("Latitude: " + latitude);
-                    text1.setText("Longitude: " + longitude);
-                }
-                else{
-                    gps.showSettingAlert();
-                }
-            }
-        });
+    button_camera = (ImageButton)findViewById(R.id.imageButton);
+    button_camera.setOnClickListener(new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v) {
+            Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            File file = getFile();
+            camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+            startActivityForResult(camera_intent, CAM_REQUEST);
+        }
+    });
+
+//        button_gps.setOnClickListener(new View.OnClickListener()
+//
+//        {
+//            public void onClick(View v){
+//                gps=  new GPS_tracker(Camera.this);
+//                if(gps.canGetLocation())
+//                {
+//                    double latitude = gps.getLatitude();
+//                    double longitude = gps.getLongtitude();
+//
+//                    //Toast.makeText(getApplicationContext(), "LAT: "+latitude + " " +"LONG: "+longitude,Toast.LENGTH_LONG).show();
+//                    text.setText("Latitude: " + latitude);
+//                    text1.setText("Longitude: " + longitude);
+//                }
+//                else{
+//                    gps.showSettingAlert();
+//                }
+//            }
+//        });
     }
 
-    public void cam(View v) {
-        Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        File file = getFile();
-        camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-        startActivityForResult(camera_intent, CAM_REQUEST);
-    }
+//    public void cam(View v) {
+//        Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        File file = getFile();
+//        camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+//        startActivityForResult(camera_intent, CAM_REQUEST);
+//    }
 
     private File getFile() {
         File folder = new File("sdcard/camera_app");
@@ -101,14 +127,14 @@ public class Camera extends AppCompatActivity {
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String path = "sdcard/camera_app/cam_image.jpg";
-        imageView.setRotation(90);
+        //imageView.setRotation(90);
         imageView.setImageDrawable(Drawable.createFromPath(path));
 
     }
 
     public void ratingBarListener(){
         rating_b = (RatingBar) findViewById(R.id.ratingBar);
-        text_v = (TextView)findViewById(R.id.textView19);
+        text_v = (TextView)findViewById(R.id.textView18);
 
         rating_b.setOnRatingBarChangeListener(
                 new RatingBar.OnRatingBarChangeListener()
