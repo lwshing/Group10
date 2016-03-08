@@ -6,4 +6,5 @@
     <string name="title_activity_main_page">MainPage</string>
     <string name="title_activity_emergency">Emergency</string>
     <string name="title_activity_acknowledge">Acknowledge</string>
+    <string name="title_activity_description">Description</string>
 </resources>

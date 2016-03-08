@@ -50,11 +50,12 @@
             android:label="@string/title_activity_emergency"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Pop_up"
-            android:theme="@style/AppTheme.Custom"></activity>
-        <activity
             android:name=".Acknowledge"
             android:label="@string/title_activity_acknowledge"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Description"
+            android:label="@string/title_activity_description"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
