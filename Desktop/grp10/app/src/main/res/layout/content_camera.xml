@@ -49,8 +49,9 @@
         android:textSize="30dp"
         android:id="@+id/textView17"
         android:layout_below="@+id/imageButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp" />
+        android:layout_toRightOf="@+id/textView18"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
 
     <RatingBar
         android:layout_width="200dp"
@@ -104,6 +105,16 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:id="@+id/button8"
+        android:layout_below="@+id/textView21"
+        android:layout_toRightOf="@+id/textView18"
+        android:layout_alignRight="@+id/textView21"
+        android:layout_alignEnd="@+id/textView21" />
 
 
 </RelativeLayout>

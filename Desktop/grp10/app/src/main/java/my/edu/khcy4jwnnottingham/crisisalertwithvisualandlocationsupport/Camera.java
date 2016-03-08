@@ -36,6 +36,7 @@ public class Camera extends AppCompatActivity {
     private static TextView text_v;
     GPS_tracker gps;
     Button button_gps;
+    Button button_pop_up;
     ImageButton button_camera;
     TextView text;
     TextView text1;
@@ -85,6 +86,14 @@ public class Camera extends AppCompatActivity {
             startActivityForResult(camera_intent, CAM_REQUEST);
         }
     });
+
+        button_pop_up = (Button)findViewById(R.id.button8);
+        button_pop_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Camera.this, Pop_up.class));
+            }
+        });
 
 //        button_gps.setOnClickListener(new View.OnClickListener()
 //

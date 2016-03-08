@@ -12,92 +12,152 @@
     tools:context="my.edu.khcy4jwnnottingham.crisisalertwithvisualandlocationsupport.Emergency"
     tools:showIn="@layout/activity_emergency">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Emergency Button"
-        android:textAlignment="center"
-        android:textSize="35dp"
-        android:id="@+id/textView14"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
         android:text="AMBULANCE"
-        android:textSize="25sp"
+        android:textSize="15sp"
+        android:gravity="center|bottom"
         android:id="@+id/button6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/button9"
-        android:layout_alignRight="@+id/button9"
-        android:layout_alignEnd="@+id/button9" />
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/textView16"
+        android:layout_alignEnd="@+id/textView16"
+        android:background="@null" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:text="POLICE"
         android:id="@+id/button7"
-        android:textSize="25sp"
-        android:layout_below="@+id/textView14"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView14"
-        android:layout_alignEnd="@+id/textView14" />
-
-
-
+        android:gravity="center|bottom"
+        android:textSize="15sp"
+        android:layout_below="@+id/button6"
+        android:layout_alignRight="@+id/textView16"
+        android:layout_alignEnd="@+id/textView16"
+        android:layout_alignLeft="@+id/button6"
+        android:layout_alignStart="@+id/button6"
+        android:background="@null"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="WARNING"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="25dp"
         android:id="@+id/textView15"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/button5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button5"
-        android:layout_alignEnd="@+id/button5" />
+        android:layout_marginTop="163dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Emergency button will send your GPS location.Aurthority might be notified!"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:id="@+id/textView16"
         android:layout_below="@+id/textView15"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:text="ANIMAL CONTROL"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:id="@+id/button9"
-        android:layout_below="@+id/button7"
+        android:gravity="center|bottom"
+        android:layout_below="@+id/button5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button7"
-        android:layout_alignEnd="@+id/button7" />
+        android:layout_alignRight="@+id/button5"
+        android:layout_alignEnd="@+id/button5"
+        android:singleLine="false"
+        android:background="@null" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
         android:text="FIRE BRIGADE"
-        android:textSize="25sp"
+        android:gravity="center|bottom"
+        android:textSize="15sp"
         android:id="@+id/button5"
-        android:layout_below="@+id/button6"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/button6"
+        android:layout_toStartOf="@+id/button6"
+        android:background="@null" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/fire_brigade"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/button6"
+        android:layout_toStartOf="@+id/button6" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/imageView3"
+        android:src="@drawable/ambulance"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button5"
         android:layout_alignRight="@+id/button6"
-        android:layout_alignEnd="@+id/button6" />
+        android:layout_alignEnd="@+id/button6"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/imageView4"
+        android:src="@drawable/animal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button5"
+        android:layout_toLeftOf="@+id/button6"
+        android:layout_toStartOf="@+id/button6"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/imageView5"
+        android:src="@drawable/police"
+        android:layout_toRightOf="@+id/button9"
+        android:layout_below="@+id/button6"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView14"
+        android:textSize="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView16"
+        android:layout_alignRight="@+id/textView16"
+        android:layout_alignEnd="@+id/textView16" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView23"
+        android:textSize="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView14"
+        android:layout_alignRight="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14" />
+
+
 </RelativeLayout>
