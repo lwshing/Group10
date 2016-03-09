@@ -1,6 +1,8 @@
 package my.edu.khcy4jwnnottingham.crisisalertwithvisualandlocationsupport;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class Emergency extends AppCompatActivity {
 
@@ -19,7 +25,7 @@ public class Emergency extends AppCompatActivity {
         TextView text1;
         GPS_tracker gps;
         Button police;
-        Button ambulane;
+        Button ambulance;
         Button animal;
         Button fire;
 
@@ -39,22 +45,36 @@ public class Emergency extends AppCompatActivity {
 
         text = (TextView)findViewById(R.id.textView14);
         text1 = (TextView)findViewById(R.id.textView23);
-
         gps = new GPS_tracker(Emergency.this);
-        if (gps.canGetLocation()) {
-            double latitude = gps.getLatitude();
-            double longitude = gps.getLongtitude();
+        double latitude = gps.getLatitude();
+        double longitude = gps.getLongtitude();
 
-            text.setText("Latitude: " + latitude);
-            text1.setText("Longitude: " + longitude);
-        } else {
-            gps.showSettingAlert();
+        Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
+
+        try{
+            List<Address> addresses = geocoder.getFromLocation(latitude, longitude,1);
+
+            if (gps.canGetLocation()) {
+                Address address = addresses.get(0);
+                StringBuilder stringBuilder = new StringBuilder("Address: ");
+
+                for(int i=0; i<address.getMaxAddressLineIndex(); i++) {
+                    stringBuilder.append(address.getAddressLine(i)).append(" ");
+                }
+                text.setText(stringBuilder.toString());
+                text1.setText("Latitude: " + latitude + "\n" + "Longitude: " + longitude);
+            }
+            else {
+                gps.showSettingAlert();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         police = (Button)findViewById(R.id.button7);
         fire = (Button)findViewById(R.id.button5);
         animal = (Button)findViewById(R.id.button9);
-        ambulane = (Button)findViewById(R.id.button6);
+        ambulance = (Button)findViewById(R.id.button6);
 
         police.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +97,7 @@ public class Emergency extends AppCompatActivity {
             }
         });
 
-        ambulane.setOnClickListener(new View.OnClickListener() {
+        ambulance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Emergency.this, Acknowledge.class));

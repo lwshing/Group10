@@ -3,6 +3,8 @@ package my.edu.khcy4jwnnottingham.crisisalertwithvisualandlocationsupport;
 import android.content.Intent;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,6 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.common.api.GoogleApiClient;
 import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 
 public class Camera extends AppCompatActivity {
@@ -62,17 +67,30 @@ public class Camera extends AppCompatActivity {
         text = (TextView) findViewById((R.id.textView20));
         text1 = (TextView) findViewById(R.id.textView21);
         imageView = (ImageView) findViewById(R.id.imageView);
-
         gps = new GPS_tracker(Camera.this);
-        if (gps.canGetLocation()) {
-            double latitude = gps.getLatitude();
-            double longitude = gps.getLongtitude();
+        double latitude = gps.getLatitude();
+        double longitude = gps.getLongtitude();
 
-            //Toast.makeText(getApplicationContext(), "LAT: "+latitude + " " +"LONG: "+longitude,Toast.LENGTH_LONG).show();
-            text.setText("Latitude: " + latitude);
-            text1.setText("Longitude: " + longitude);
-        } else {
-            gps.showSettingAlert();
+        Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
+
+        try{
+            List<Address> addresses = geocoder.getFromLocation(latitude, longitude,1);
+
+            if (gps.canGetLocation()) {
+                Address address = addresses.get(0);
+                StringBuilder stringBuilder = new StringBuilder("Address: ");
+
+                for(int i=0; i<address.getMaxAddressLineIndex(); i++) {
+                    stringBuilder.append(address.getAddressLine(i)).append(" ");
+                }
+                text.setText(stringBuilder.toString());
+                text1.setText("Latitude: " + latitude + "\n" + "Longitude: " + longitude);
+            }
+            else {
+                gps.showSettingAlert();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     button_camera = (ImageButton)findViewById(R.id.imageButton);
